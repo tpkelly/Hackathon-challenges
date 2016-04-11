@@ -9,7 +9,7 @@ namespace ChallengeData.Context
     using System.Data.Entity;
     using Model;
 
-    public class DataContext : DbContext
+    public class DataContext : DbContext, IDataContext
     {
         public DataContext()
             : base("DataContext")

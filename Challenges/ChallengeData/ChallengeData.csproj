@@ -49,7 +49,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Context\ContextFactory.cs" />
     <Compile Include="Context\DataContext.cs" />
+    <Compile Include="Context\IContextFactory.cs" />
+    <Compile Include="Context\IDataContext.cs" />
     <Compile Include="Migrations\201604111540485_InitialModels.cs" />
     <Compile Include="Migrations\201604111540485_InitialModels.Designer.cs">
       <DependentUpon>201604111540485_InitialModels.cs</DependentUpon>
