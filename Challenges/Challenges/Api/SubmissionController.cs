@@ -1,5 +1,6 @@
 ﻿namespace Challenges.Api
 {
+    using System;
     using System.Collections.Generic;
     using System.Linq;
     using System.Net;
@@ -31,6 +32,8 @@
 
                 // Grade the submission
                 submission.Funds = 0;
+                submission.TimeStamp = DateTime.UtcNow;
+
                 foreach (var answer in submission.Answers)
                 {
                     if (answerDict[answer.QuestionId].Value.Equals(answer.Value))

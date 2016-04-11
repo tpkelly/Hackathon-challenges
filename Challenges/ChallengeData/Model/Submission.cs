@@ -10,6 +10,7 @@
         [Key]
         public long Id { get; set; }
 
+        [Required]
         public string TeamName { get; set; }
 
         public DateTime TimeStamp { get; set; }
