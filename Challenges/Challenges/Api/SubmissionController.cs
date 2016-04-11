@@ -21,6 +21,11 @@
         [HttpPost]
         public void Post(Submission submission)
         {
+            if (submission == null)
+            {
+                ThrowError(HttpStatusCode.BadRequest, "Submission is required");
+            }
+
             if (!ModelState.IsValid)
             {
                 ThrowError(HttpStatusCode.BadRequest, ModelState);

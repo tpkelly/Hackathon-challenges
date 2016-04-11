@@ -22,7 +22,7 @@ namespace ChallengeData.Context
 
         public IDbSet<Submission> Submissions { get; set; } 
         public IDbSet<SubmissionAnswer> SubmissionAnswers { get; set; } 
-        public IDbSet<Question> Questions { get; } 
-        public IDbSet<Answer> Answers { get; }
+        public IDbSet<Question> Questions { get; set; } 
+        public IDbSet<Answer> Answers { get; set; }
     }
 }

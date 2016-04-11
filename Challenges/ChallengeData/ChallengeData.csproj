@@ -57,6 +57,10 @@
     <Compile Include="Migrations\201604111540485_InitialModels.Designer.cs">
       <DependentUpon>201604111540485_InitialModels.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201604111654267_RequireTeamname.cs" />
+    <Compile Include="Migrations\201604111654267_RequireTeamname.Designer.cs">
+      <DependentUpon>201604111654267_RequireTeamname.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Model\Answer.cs" />
     <Compile Include="Model\Question.cs" />
@@ -71,6 +75,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201604111540485_InitialModels.resx">
       <DependentUpon>201604111540485_InitialModels.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201604111654267_RequireTeamname.resx">
+      <DependentUpon>201604111654267_RequireTeamname.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
