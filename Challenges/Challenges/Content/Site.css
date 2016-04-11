@@ -1,17 +1,68 @@
-﻿body {
-    padding-top: 50px;
-    padding-bottom: 20px;
+﻿html, body {
+  height: 100%;
+  font-size: 12pt;
 }
 
-/* Set padding to keep content from hitting the edges */
-.body-content {
-    padding-left: 15px;
-    padding-right: 15px;
+h1 {
+  font-weight: bold;
 }
 
-/* Set width on the form input elements since they're 100% wide by default */
-input,
-select,
-textarea {
-    max-width: 280px;
+h2 {
+  margin: 0;
+  font-style: italic;
+}
+
+header {
+  margin-top: 20px;
+  text-align: center;
+}
+
+label {
+  display: block;
+  font-weight: normal;
+}
+
+form {
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+select {
+  width: 175px;
+  height: 28px;
+}
+
+input[type=submit] {
+  margin: 20px 0;
+  color: white;
+  background-color: #2bb3bb;
+  border: 0;
+  padding: 5px 20px;
+  border-radius: 5px;
+}
+
+input[type=submit]:hover {
+  background-color: #27A4AB;
+}
+
+input[type=submit]:disabled {
+  opacity: 0.5;
+}
+
+.question {
+  margin-top: 30px;
+}
+
+.question .part {
+  margin-top: 10px;
+}
+
+td {
+  padding: 0 10px;
+}
+
+td.scrabble-score {
+  text-align: right;
+  border-right: solid 1px black;
 }

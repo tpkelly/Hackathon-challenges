@@ -1,24 +1,159 @@
-﻿<div class="jumbotron">
-    <h1>ASP.NET</h1>
-    <p class="lead">ASP.NET is a free web framework for building great Web sites and Web applications using HTML, CSS, and JavaScript.</p>
-    <p><a href="http://asp.net" class="btn btn-primary btn-lg">Learn more &raquo;</a></p>
-</div>
-<div class="row">
-    <div class="col-md-4">
-        <h2>Getting started</h2>
-        <p>ASP.NET Web API is a framework that makes it easy to build HTTP services that reach
-        a broad range of clients, including browsers and mobile devices. ASP.NET Web API
-        is an ideal platform for building RESTful applications on the .NET Framework.</p>
-        <p><a class="btn btn-default" href="http://go.microsoft.com/fwlink/?LinkId=301870">Learn more &raquo;</a></p>
+﻿<form ng-submit="onSubmit()" ng-app="quiz" ng-controller="QuizController">
+    <div class="question">
+        <h3>Team Name</h3>
+        <input ng-model="formData.teamName" required />
     </div>
-    <div class="col-md-4">
-        <h2>Get more libraries</h2>
-        <p>NuGet is a free Visual Studio extension that makes it easy to add, remove, and update libraries and tools in Visual Studio projects.</p>
-        <p><a class="btn btn-default" href="http://go.microsoft.com/fwlink/?LinkId=301871">Learn more &raquo;</a></p>
+
+    <div class="question">
+        <h3>Question 1 - Fibonacci Sequence - &pound;3000</h3>
+        <p>The Fibonacci sequence is the sequence of integers defined by the recurrence relation <b>F<sub>n</sub> = F<sub>n-1</sub> + F<sub>n-2</sub></b>.</p>
+        <p>with seed values <b>F<sub>1</sub> = 1, F<sub>2</sub> = 1</b> to produce 1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89, 144, ...</p>
+        <p>
+            N.B. Consider all seed values to be positive integers, where F<sub>1</sub> &lt; F<sub>2</sub>
+
+            <div class="part">
+                <label for="q1a">a) How many even Fibonacci numbers are there between 1 and 50,000 inclusive?</label>
+                <input ng-model="formData.q1a" /> (&pound;300)
+            </div>
+
+            <div class="part">
+                <label for="q1b-a">b) Determine the smallest two seed values F<sub>1</sub>, F<sub>2</sub> such that the recurrence relation <b>F<sub>n</sub> = F<sub>n-1</sub> + F<sub>n-2</sub></b> includes the numbers 1076 and 1741 in its output sequence.</label>
+                F<sub>1</sub> = <input ng-model="formData.q1b.a" />
+                F<sub>2</sub> = <input ng-model="formData.q1b.b" /> (&pound;600)
+            </div>
+
+            <div class="part">
+                <label for="q1c-a">c) Determine the smallest two seed values F<sub>1</sub>, F<sub>2</sub> such that the recurrence relation <b>F<sub>n</sub> = F<sub>n-1</sub> x F<sub>n-2</sub></b> includes the numbers 18225 and 7381125 in its output sequence.</label>
+                F<sub>1</sub> = <input ng-model="formData.q1c.a" />
+                F<sub>2</sub> = <input ng-model="formData.q1c.b" /> (&pound;600)
+            </div>
+
+            <div class="part">
+                <label for="q1d-a">d) Determine the smallest two seed values F<sub>1</sub>, F<sub>2</sub> such that the recurrence relation <b>F<sub>n</sub> = F<sub>n-1</sub> + F<sub>n-2</sub></b> includes the number 212 in its output sequence.</label>
+                F<sub>1</sub> = <input ng-model="formData.q1d.a" />
+                F<sub>2</sub> = <input ng-model="formData.q1d.b" /> (&pound;1500)
+            </div>
     </div>
-    <div class="col-md-4">
-        <h2>Web Hosting</h2>
-        <p>You can easily find a web hosting company that offers the right mix of features and price for your applications.</p>
-        <p><a class="btn btn-default" href="http://go.microsoft.com/fwlink/?LinkId=301872">Learn more &raquo;</a></p>
+
+    <div class="question">
+        <h3>Question 2 - Scrabble Values - &pound;3000</h3>
+        <p>The scrabble value of a number is determined by adding the scrabble values of the letters that make up the number.</p>
+        <p>Scrabble letter values are:</p>
+
+        <table>
+            <tr>
+                <td class="scrabble-score">1</td>
+                <td>a, e, i, l, n, o, r, s, t, u</td>
+            </tr>
+            <tr>
+                <td class="scrabble-score">2</td>
+                <td>d, g</td>
+            </tr>
+            <tr>
+                <td class="scrabble-score">3</td>
+                <td>b, c, m, p</td>
+            </tr>
+            <tr>
+                <td class="scrabble-score">4</td>
+                <td>f, h, v, w, y</td>
+            </tr>
+            <tr>
+                <td class="scrabble-score">5</td>
+                <td>k</td>
+            </tr>
+            <tr>
+                <td class="scrabble-score">8</td>
+                <td>j, x</td>
+            </tr>
+            <tr>
+                <td class="scrabble-score">10</td>
+                <td>q, z</td>
+            </tr>
+        </table>
+
+        <p>For example, the scrabble value of 8 (eight) would be:</p>
+        <p>e + i + g + h + t = 1 + 1 + 2 + 4 + 1 = 9</p>
+
+        <div class="part">
+            <label for="q2">What is the most common scrabble value for the numbers from 1 to 99 inclusive?</label>
+            <input ng-model="formData.q2" />
+        </div>
     </div>
-</div>
+
+    <div class="question">
+        <h3>Question 3 - Base 37 - &pound;3000</h3>
+        <p>Base 37 represents the numbers from 0 to 36 as a single digit, 37 to 1369 as two digits, etc.</p>
+        <p>For 0 to 9, the Base 37 representation matches the Base 10 representation.</p>
+        <p>For 10 to 35, the Base 37 representation uses the lowercase letters 'a' to 'z'.</p>
+        <p>For 36, the Base 37 representation uses the '!' character.</p>
+        <div class="part">
+            <label for="q3">What is the value of the decimal 5940633209 in base 37?</label>
+            <input ng-model="formData.q3" />
+        </div>
+    </div>
+
+    <div class="question">
+        <h3>Question 4 - Four Fours - &pound;3000</h3>
+        <p>Many numbers can be calculated using +, -, x, /, (, ), and exactly four 4s.</p>
+        <p>For example:</p>
+        <p>
+            1 = 4 - 4 + 4 / 4 <br />
+            2 = 4 / 4 + 4 / 4 <br />
+            3 = (4 + 4 + 4) / 4 <br />
+            etc.
+        </p>
+        <p>N.B. For this question, '44' is not a valid use of the fours.</p>
+
+        <div class="part">
+            <label for="q4">How many of the integers 0 to 100 (inclusive) can be calculated using only these operations?</label>
+            <input ng-model="formData.q4" />
+        </div>
+    </div>
+
+    <div class="question">
+        <h3>Question 5 - Rugby - &pound;4500</h3>
+        <p>In a rugby match, points are awarded for tries (5), conversions (7) and penalties (3).</p>
+        <p>The order that points are scored in is not important - a try followed by a penalty is considered the same as a penalty followed by a try.</p>
+        <div class="part">
+            <label for="q5">How many ways are there for a team to amass 100 points?</label>
+            <input ng-model="formData.q5" />
+        </div>
+    </div>
+
+    <div class="question">
+        <h3>Question 6 - Look and Say - &pound;4500</h3>
+        <p>A <a href="https://en.wikipedia.org/wiki/Look-and-say_sequence">Look-and-say sequence</a> is a sequence of integers generated by describing the previous value.</p>
+        <p>For example, if F<sub>n-1</sub> = 338, F<sub>n</sub> = 2318 ("Two 3s, One eight").</p>
+
+        <div class="part">
+            <label for="q6a">a) How many ones are there in F<sub>10</sub> of the look-and-say sequence where F<sub>0</sub> = 121?</label>
+            <input ng-model="formData.q6a" /> (&pound;1500)
+        </div>
+
+        <div class="part">
+            <label for="q6b">b) How many threes are there in F<sub>20</sub> of the look-and-say sequence where F<sub>0</sub> = 333?</label>
+            <input ng-model="formData.q6b" /> (&pound;3000)
+        </div>
+    </div>
+
+    <div class="question">
+        <h3>Question 7 - Day of the Month - &pound;9000</h3>
+        <p>Due to leap years, calendars follow a 400-year cycle, starting from January 1st on multiples of 400 years (E.g. Jan 1st 2000).</p>
+        <p>In this cycle, the 13th day of a month is more likely to fall on a Friday than any other day of the week.</p>
+
+        <div class="part">
+            <label for="q7a">a) Which day is the 31st most likely to fall on?</label>
+            <select ng-model="formData.q7a">
+                <option value="" disabled selected style="display: none;">-</option>
+                <option ng-repeat="item in dayOptions">{{item}}</option>
+            </select> (&pound;3000)
+        </div>
+
+        <div class="part">
+            <label for="q7b">b) How many times does the 31st fall on this day over the 400-year cycle?</label>
+            <input ng-model="formData.q7b" /> (&pound;6000)
+        </div>
+    </div>
+
+    <input type="submit" ng-disabled="submitDisabled"></input>
+</form>
