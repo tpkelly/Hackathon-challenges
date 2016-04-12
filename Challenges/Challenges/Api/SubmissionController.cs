@@ -1,7 +1,7 @@
 ﻿namespace Challenges.Api
 {
     using System;
-    using System.Collections.Generic;
+    using System.Data.Entity;
     using System.Linq;
     using System.Net;
     using System.Net.Http;
@@ -9,6 +9,7 @@
     using ChallengeData.Context;
     using ChallengeData.Model;
     using System.Web.Http.ModelBinding;
+
     public class SubmissionController : ApiController
     {
         private readonly IContextFactory _contextFactory;
@@ -33,7 +34,9 @@
 
             using (var context = _contextFactory.CreateContext())
             {
-                var answerDict = context.Answers.ToDictionary(a => a.QuestionId);
+                var answerDict = context.Answers
+                    .Include(a => a.Question)
+                    .ToDictionary(a => a.QuestionId);
 
                 // Grade the submission
                 submission.Funds = 0;
@@ -41,15 +44,16 @@
                 context.Submissions.Add(submission);
                 context.SaveChanges();
 
-                foreach (var answer in submission.Answers)
+                foreach (var submissionAnswer in submission.Answers)
                 {
-                    if (answerDict[answer.QuestionId].Value.Equals(answer.Value))
+                    var answer = answerDict[submissionAnswer.QuestionId];
+                    if (answer.Value.Equals(submissionAnswer.Value))
                     {
                         submission.Funds += answer.Question.Reward;
                     }
 
-                    answer.SubmissionId = submission.Id;
-                    context.SubmissionAnswers.Add(answer);
+                    submissionAnswer.SubmissionId = submission.Id;
+                    context.SubmissionAnswers.Add(submissionAnswer);
                 }
 
                 context.SaveChanges();

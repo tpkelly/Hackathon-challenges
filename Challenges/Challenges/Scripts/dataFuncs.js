@@ -12,21 +12,23 @@ var DataFunctions = function() {
   
   var dataToString = function(data) {
     return JSON.stringify({
-      'teamName': data.teamName,
-      'q1a': data.q1a,
-      'q1b': joinedAnswer(data.q1b),
-      'q1c': joinedAnswer(data.q1c),
-      'q1d': joinedAnswer(data.q1d),
-      'q2': data.q2,
-      'q3': data.q3,
-      'q4': data.q4,
-      'q5': data.q5,
-      'q6a': data.q6a,
-      'q6b': data.q6b,
-      'q7a': data.q7a,
-      'q7b': data.q7b
+        'TeamName': data.teamName,
+        'Answers': [
+            { QuestionId: 1, Value: data.q1a },
+            { QuestionId: 2, Value: joinedAnswer(data.q1b) },
+            { QuestionId: 3, Value: joinedAnswer(data.q1c) },
+            { QuestionId: 4, Value: joinedAnswer(data.q1d) },
+            { QuestionId: 5, Value: data.q2 },
+            { QuestionId: 6, Value: data.q3 },
+            { QuestionId: 7, Value: data.q4 },
+            { QuestionId: 8, Value: data.q5 },
+            { QuestionId: 9, Value: data.q6a },
+            { QuestionId: 10, Value: data.q6b },
+            { QuestionId: 11, Value: data.q7a },
+            { QuestionId: 12, Value: data.q7b }
+        ]
       });
-  };
+};
   
   var dataFromString = function(data) {
     var formData = JSON.parse(data);
