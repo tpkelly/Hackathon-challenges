@@ -1,4 +1,4 @@
-﻿<form ng-submit="onSubmit()" ng-app="quiz" ng-controller="QuizController">
+﻿<form name="challengeForm" ng-submit="onSubmit()" ng-app="quiz" ng-controller="QuizController">
     <div class="question">
         <h3>Team Name</h3>
         <input ng-model="formData.teamName" required />
@@ -155,5 +155,5 @@
         </div>
     </div>
 
-    <input type="submit" ng-disabled="submitDisabled"/>
+    <input type="submit" ng-disabled="submitDisabled" ng-value="submitValue"/>
 </form>

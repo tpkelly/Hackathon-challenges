@@ -53,7 +53,6 @@
                     }
 
                     submissionAnswer.SubmissionId = submission.Id;
-                    context.SubmissionAnswers.Add(submissionAnswer);
                 }
 
                 context.SaveChanges();

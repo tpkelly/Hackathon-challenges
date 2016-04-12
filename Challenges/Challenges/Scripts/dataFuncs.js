@@ -45,7 +45,7 @@ var DataFunctions = function() {
   }
 
   var saveFormData = function(data) {
-    localStorage.setItem("formData", dataToString(data));
+    localStorage.setItem("formData", JSON.stringify(data));
   }
   
   var loadFormData = function() {

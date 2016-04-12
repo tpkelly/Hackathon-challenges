@@ -22,21 +22,21 @@
         $scope.formData = dataFuncs.loadFormData();
 
         $scope.submitDisabled = false;
+        $scope.submitValue = "Submit";
 
-        $scope.$watch($scope.formData, function() {
-            $scope.submitDisabled = ($scope.storedData == $scope.formData);
-        }, true);
-
-        $scope.onSubmit = function() {
+        $scope.onSubmit = function () {
+            $scope.submitDisabled = true;
             $scope.storedData = $scope.formData;
             dataFuncs.saveFormData($scope.formData);
-            $scope.formData = dataFuncs.loadFormData();
 
             return $http({
                 method: 'POST',
                 url: '/api/submission',
                 headers: { 'Content-Type': 'application/json' },
-                data: $scope.formData
+                data: dataFuncs.dataToString($scope.formData)
+            }).then(function(response) {
+                $scope.submitDisabled = false;
+                $scope.submitValue = (response.status < 400) ? "Submitted" : "Submit failed";
             });
         };
     }
