@@ -1,6 +1,7 @@
 ﻿namespace Challenges.Api
 {
     using System;
+    using System.Collections.Generic;
     using System.Data.Entity;
     using System.Linq;
     using System.Net;
@@ -19,6 +20,19 @@
             _contextFactory = contextFactory;
         }
 
+        [HttpGet]
+        public IEnumerable<SubmissionResponse> Get()
+        {
+            IEnumerable<SubmissionResponse> submissions;
+
+            using (var context = _contextFactory.CreateContext())
+            {
+                submissions = context.Submissions.Select(s => new SubmissionResponse {Funds = s.Funds, TeamName = s.TeamName}).ToArray();
+            }
+
+            return submissions;
+        }
+        
         [HttpPost]
         public void Post(Submission submission)
         {
