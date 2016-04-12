@@ -17,6 +17,7 @@
 
         public int Funds { get; set; }
 
+        [Required]
         public ICollection<SubmissionAnswer> Answers { get; set; }
     }
 }

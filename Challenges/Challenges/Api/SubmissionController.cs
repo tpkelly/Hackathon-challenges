@@ -38,6 +38,8 @@
                 // Grade the submission
                 submission.Funds = 0;
                 submission.TimeStamp = DateTime.UtcNow;
+                context.Submissions.Add(submission);
+                context.SaveChanges();
 
                 foreach (var answer in submission.Answers)
                 {
@@ -45,9 +47,11 @@
                     {
                         submission.Funds += answer.Question.Reward;
                     }
+
+                    answer.SubmissionId = submission.Id;
+                    context.SubmissionAnswers.Add(answer);
                 }
 
-                context.Submissions.Add(submission);
                 context.SaveChanges();
             }
         }
